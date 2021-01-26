@@ -31,7 +31,7 @@ def eur_to_php(amount):
     return f"{usd} PHP"
 
 @app.route("/history")
-def history():
+def get_history():
     with open('history.txt', 'r') as f:
         response = f.read().splitlines()
     return render_template('history.html', full_history=response)
