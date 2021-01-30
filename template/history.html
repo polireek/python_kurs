@@ -6,11 +6,20 @@
 </head>
 <body>
     <ui>
+        {% if static==1 %}
         {% for line in full_history %}
             <li>
-                {{line}}
+                {{line.currency_to}}, {{line.exchange_rate}}, {{line.amount}}, {{line.result}}
             </li>
-        {% endfor%}
+        {% endfor %}
+        {% endif %}
+        {% if static==0 %}
+        {% for line in full_history %}
+            <li>
+                {{line.currency_to}}, {{line.count_res}}, {{line.sum_result}}
+            </li>
+        {% endfor %}
+        {% endif %}
     </ui>
 </body>
 </html>
